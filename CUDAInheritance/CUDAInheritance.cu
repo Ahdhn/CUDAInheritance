@@ -1,3 +1,9 @@
+/** CUDA 11.4 - GTX 1050
+ * Accessing base's method through derived class ---  time = 1894.9 (ms)
+ * Accessing only derived class methods ---  time = 1832.08 (ms)
+ */
+
+
 #include <assert.h>
 #include <cuda_runtime.h>
 #include <stdio.h>
@@ -60,7 +66,7 @@ __global__ void kernel(Derived d, const int data, const bool base)
 TEST(CUDAInheritance, Test0)
 {
     Derived      d;
-    int          val = rand();
+    int          val     = rand();
     int          num_run = 1E6;
     cudaStream_t stream;
     CUDA_ERROR(cudaStreamCreate(&stream));
